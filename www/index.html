@@ -1,27 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>InAppBrowser.addEventListener Example</title>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<script src="js/pgb.js"></script>
+		<script src="cordova.js"></script>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body onload="init()">
+		<h1><p>Hello World!</p></h1>
+		<p id="dp"></p>
+		<input type="button" onclick="deviceInfo()" value="Pokaz informacje dotyczace Twojego telefonu">
+		<input type="button" onclick="network()" value="Wyświetl informacje dotyczące połączenia z internetem">
+	</body>
 
-    <script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for device API libraries to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // device APIs are available
-    //
-    function onDeviceReady() {
-         var ref = window.open('http://apache.org', '_blank', 'location=yes');
-         ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
-         ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
-         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
-         ref.addEventListener('exit', function(event) { alert(event.type); });
-    }
-
-    </script>
-  </head>
-  <body>
-  </body>
 </html>
