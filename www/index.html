@@ -2,27 +2,32 @@
 <html>
   <head>
     <title>InAppBrowser.addEventListener Example</title>
+ </head>
+     <body>
+	<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
+	<textarea id="messageTxt" placeholder="Enter message"></textarea>
+	<input type="button" onclick="app.sendSms()" value="Send SMS" />
+   <script>
+ var app = {
+    sendSms: function() {
+        var number = document.getElementById('numberTxt').value;
+        var message = document.getElementById('messageTxt').value;
+        console.log("number=" + number + ", message= " + message);
 
-    <script type="text/javascript" charset="utf-8" src="cordova-x.x.x.js"></script>
-    <script type="text/javascript" charset="utf-8">
+        //CONFIGURATION
+        var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
 
-    // Wait for device API libraries to load
-    //
-
-    // device APIs are available
-    //
-
-	window.plugin.email.open({
-    to:      ['max.mustermann@appplant.de'],
-    cc:      ['erika.mustermann@appplant.de'],
-    bcc:     ['john.doe@appplant.com', 'jane.doe@appplant.com'],
-    subject: 'Greetings',
-    body:    'How are you? Nice greetings from Leipzig'
-});
-
-	window.plugin.email.open();
-    </script>
-  </head>
-  <body>
+        var success = function () { alert('Message sent successfully'); };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(number, message, options, success, error);
+    }
+};
+ </script>
   </body>
 </html>
