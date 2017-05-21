@@ -16,6 +16,10 @@
 	
 <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" />
 
+<plugin name="cordova-plugin-email-composer" spec="~0.8.0" />
+
+
+
 <!-- Allow links to web pages to open in a browser -->
 <allow-intent href="http://*/*" />
 <allow-intent href="https://*/*" />
